@@ -20,29 +20,40 @@ Install This Worker Template using the below steps:
 #### 2. Create a KV namespace to store API Keys
 
 >wrangler kv:namespace create "APIKeys"
-> Creating namespace with title "<yourworkername>-APIKeys"
-> Success!
+>
+>Creating namespace with title "<yourworkername>-APIKeys"
+>Success!
+>
 >Add the following to your configuration file:
+>
 >kv_namespaces = [
->         { binding = "APIKeys", id = "<An ID gets generated here>" }
+>
+>{ binding = "APIKeys", id = "An ID gets generated here" }
 >]
 
 Make note of the above id, this is required in step 3
 
 #### 3. Edit wranger.toml and change the below to match your cloudflare account
 
->account_id = "<your cloudflare account id"
->routes = ["*.yourdomain.com/login*"] - Implements authentication for all subdomains under yourdomain.com
+>account_id = "your cloudflare account id"
+>
+>routes = ["\*.yourdomain.com/login\*"] - Implements authentication for all subdomains under yourdomain.com
+>
 >zone_id = "yourzoneid"
-
+>
 >kv_namespaces = [
 >         { binding = "APIKeys", id = "<put the KV ID generated in Step 2>" }
+>
 >]
 
 >[vars]
+>
 >datasinkprotocol = "https" - Change this if you need to set a different protocol for datasink otherwise leave it as it is.
+>
 >datasink = "api.cl1p.net" - Change this if you want to use a different private or public datasink, no http or https, just datasinkname
+>
 >cookiedomain = ".yourdomain.com"  - Prefix a dot to allow a cookie to be set for all you subdomains
+>
 
 Save this File
 
