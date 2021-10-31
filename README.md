@@ -17,7 +17,18 @@ Install This Worker Template using the below steps:
 
 >wrangler generate yourworkername https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template
 
-#### 2. Create a KV namespace to store API Keys using the below command
+#### 2. Edit wranger.toml and change the below to match your cloudflare account. 
+If your correct account id and zone id is already shown, you can skip this and proceed to next step
+
+>account_id = "your cloudflare account id"
+>
+>
+>zone_id = "yourzoneid"
+
+Save the File
+
+
+#### 3. Create a KV namespace to store API Keys using the below command
 
 >wrangler kv:namespace create "APIKeys"
 
@@ -33,13 +44,9 @@ kv_namespaces = [
 
 Make note of the above id, this is required in step 3
 
-#### 3. Edit wranger.toml and change the below to match your cloudflare account
+#### 4. Edit wranger.toml once again and make the required changes
 
->account_id = "your cloudflare account id"
->
 >routes = ["\*.yourdomain.com/login\*"] - Implements authentication for all subdomains under yourdomain.com
->
->zone_id = "yourzoneid"
 >
 >kv_namespaces = [
 >         { binding = "APIKeys", id = "<put the KV ID generated in Step 2>" }
@@ -55,9 +62,9 @@ Make note of the above id, this is required in step 3
 >cookiedomain = ".yourdomain.com"  - Prefix a dot to allow a cookie to be set for all you subdomains
 >
 
-Save this File
+Save the file one last time
 
-#### 4. Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
+#### 5. Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
 
 A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
 @
@@ -68,7 +75,7 @@ Run the below command to save your API Key as a secret inside Cloud Flare
 
 >wrangler kv:key put --binding=APIKeys "RapidAPIKey" "your-Rapid-api-Key"
 
-#### 5. That is it!! Publish your worker
+#### 6. That is it!! Publish your worker
 >wrangler publish
 
 Lastly publish static web pages in your domain or subdomains and point the redirction url to your application.
