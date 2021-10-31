@@ -17,19 +17,19 @@ Install This Worker Template using the below steps:
 
 >wrangler generate yourworkername https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template
 
-#### 2. Create a KV namespace to store API Keys
+#### 2. Create a KV namespace to store API Keys using the below command
 
 >wrangler kv:namespace create "APIKeys"
->
->Creating namespace with title "<yourworkername>-APIKeys"
->Success!
->
->Add the following to your configuration file:
->
->kv_namespaces = [
->
->{ binding = "APIKeys", id = "An ID gets generated here" }
->]
+
+
+Creating namespace with title "<yourworkername>-APIKeys"
+Success!
+
+Add the following to your configuration file:
+
+kv_namespaces = [
+{ binding = "APIKeys", id = "An ID gets generated here" }
+]
 
 Make note of the above id, this is required in step 3
 
