@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "hexa8authcfworker-template",
+  "version": "1.0.0",
+  "description": "A template for kick starting HexaEight Authentication using Cloudflare Workers project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "HexaEight_Admin <admin@hexaeight.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
+}

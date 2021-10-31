@@ -1,0 +1,17 @@
+name = "hexa8authcfworker-template"
+type = "javascript"
+
+account_id = "<your account id>"
+workers_dev = false
+routes = ["*.yourdomain.com/login*"]
+zone_id = "<your zone id>"
+compatibility_date = "2021-10-31"
+
+kv_namespaces = [
+         { binding = "APIKeys", id = "<your KV Id>" }
+]
+
+[vars]
+datasinkprotocol = "https"
+datasink = "api.cl1p.net"
+cookiedomain = ".yourdomain.com"
