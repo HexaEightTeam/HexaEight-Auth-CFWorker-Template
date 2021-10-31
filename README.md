@@ -55,7 +55,7 @@ Copy the API Key and
 
 Run the below command to save your API Key as a secret inside Cloud Flare
 
->wrangler kv:key put --binding=APIKeys "RapidAPIKey" "<your api Key>"
+>wrangler kv:key put --binding=APIKeys "RapidAPIKey" "your-Rapid-api-Key"
 
 #### 5. That is it!! Publish your worker
 >wrangler publish
