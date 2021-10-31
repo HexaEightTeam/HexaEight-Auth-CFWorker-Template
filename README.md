@@ -46,11 +46,11 @@ Make note of the above id, this is required in step 3
 
 Save this File
 
-#### 4. Get an API Key for HexaEight Secure Platform from [`RapidAPI`] (https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
+#### 4. Get an API Key for HexaEight Secure Platform from [RapidAPI] (https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
 
 A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
 @
-[`Rapid API Dashboard`](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
+[Rapid API Dashboard](https://rapidapi.com/developer/dashboard) --> Choose the default application --> Security on the left hand pane --> Application Key
 Copy the API Key and 
 
 Run the below command to save your API Key as a secret inside Cloud Flare
