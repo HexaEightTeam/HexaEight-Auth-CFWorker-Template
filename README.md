@@ -46,7 +46,7 @@ Make note of the above id, this is required in step 3
 
 Save this File
 
-#### 4. Get an API Key for HexaEight Secure Platform from [RapidAPI] (https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
+#### 4. Get an API Key for HexaEight Secure Platform from [RapidAPI](https://rapidapi.com/hexaeight-hexaeight-default/api/hexaeight-sso-platform/pricing)
 
 A Free Plan is available if you want to test the authentication. Once you have subscribed to a plan, your Rapid API key is available 
 @
