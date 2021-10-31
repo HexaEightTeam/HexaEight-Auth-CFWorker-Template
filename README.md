@@ -42,14 +42,14 @@ kv_namespaces = [
 { binding = "APIKeys", id = "An ID gets generated here" }
 ]
 
-Make note of the above id, this is required in step 3
+Make note of the above id, this is required in next step
 
 #### 4. Edit wranger.toml once again and make the required changes
 
 >routes = ["\*.yourdomain.com/login\*"] - Implements authentication for all subdomains under yourdomain.com
 >
 >kv_namespaces = [
->         { binding = "APIKeys", id = "<put the KV ID generated in Step 2>" }
+>         { binding = "APIKeys", id = "\<put the KV ID generated in Step 3\>" }
 >
 >]
 
