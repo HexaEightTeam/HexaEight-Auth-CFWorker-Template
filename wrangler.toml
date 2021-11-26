@@ -1,17 +1,50 @@
 name = "hexa8authcfworker-template"
 type = "javascript"
 
-account_id = "<your account id>"
+account_id = "your cloudflare account id"
 workers_dev = false
-routes = ["*.yourdomain.com/login*"]
-zone_id = "<your zone id>"
-compatibility_date = "2021-10-31"
+routes = ["*.hexaeight.com/login*"]
+zone_id = "your zoneid"
+compatibility_date = "2021-11-24"
 
 kv_namespaces = [
-         { binding = "APIKeys", id = "<your KV Id>" }
+         { binding = "APIKeys", id = "put the KV ID generated for APIKeys" },
+	 { binding = "DATASink", id = "put the KV ID generated in DATASink" },
+	 { binding = "AUDITLogs", id = "put the KV ID generated in AUDITLogs" }
 ]
 
 [vars]
+#Change this if you need to set a different protocol for datasink
 datasinkprotocol = "https"
-datasink = "api.cl1p.net"
-cookiedomain = ".yourdomain.com"
+
+#Set usecfdatasink to NO if you dont want to use CF Worker as a Datasink.  
+#HexaEight Serverless is tested and works with api.cl1p.net  and could be an alternative which provides cost effective datasink.  
+usecfdatasink = "YES"
+
+#Change the domain below
+datasink = "login.yourdomain.xxx/login/sink"
+
+#Prefix a dot to allow a cookie to be set for all you subdomains
+cookiedomain = ".yourdomain.xxx"
+
+#Change emaildomainfilter to NO if you want to allow authentication from any email address
+emaildomainsfilter = "YES"
+ 
+#If the email domain filter is set to YES enter a comma seperated list of domains with the single quotes as shown below
+emaildomainslist = "'gmail.com','facebook.com','yahoo.com'"
+
+#Change your domain below and set the server name to the subdomain of your choice. Esure the datasink subdomain matches with the same subdomain.
+servername = "login.yourdomain.xxx"
+
+#Do not change the below two settings
+path = "/"
+redirecturl = "/loginsuccess"
+
+#Input the Client code (Client ID) generated above
+clientappcode = "put your client ID here"
+#This is a small lock image displayed at the bottom of the page which you can customize if you want to put your own logo.
+bottomlogo = "https://cdn1.iconfinder.com/data/icons/hawcons/32/698845-icon-118-lock-rounded-128.png"
+
+#By enabling auditing every login success, blocked logins, cookie extension success and failure messages are captured in the AUDITLogs KV
+#Logs are retained for a week after which the logs expire automatically. Change it to DISABLED if you want to disable auditing.
+auditing = "ENABLED"
