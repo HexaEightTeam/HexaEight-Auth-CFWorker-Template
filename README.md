@@ -4,6 +4,14 @@ This is the base template that implements HexaEight Serverless on a CloudFlare W
 
 Please report any issues related to this template in the issues section.
 
+Limitations of HexaEight Serverless Deployed using Cloud Flare Workers : You cannot register only a subdomain in cloudflare, 
+instead you will need to register your entire domain in cloudflare, the subdomain feature is only availble for enterprise customers.
+So if you are planning on protecting only your subdomain using HexaEight Serverless, then this wont work unless you are a Cloudflare 
+Enterprise customer.
+
+We are aware of this limitation, alternatively HexaEight Serverless is expected to be available shortly on other Cloud Platforms like Microsoft Azure, AWS, GCP etc.
+These alternatives can be utilized to deploy HexaEight Serverless in a subdomain directly.
+
 [`index.js`](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template/blob/main/index.js) contains the Worker Script
 
 ##### Wrangler
