@@ -146,7 +146,7 @@ OR
 >     emaildomainsfilter = "YES"
 >      
 >     #If the email domain filter is set to YES enter a comma seperated list of domains with the single quotes as shown below
->     emaildomainslist = "'hexaeight.com','hexaeight-greatsite.net'"
+>     emaildomainslist = "'gmail.com','facebook.com','yahoo.com'"
 >
 >     #Change your domain below and set the server name to the subdomain of your choice. Esure the datasink subdomain matches with the same subdomain.
 >     servername = "login.yourdomain.xxx"
