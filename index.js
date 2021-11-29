@@ -439,7 +439,7 @@ async function handleRequest(request) {
 			      let enduser = userdetails.split(":");
 			      let useremail=enduser[0];
 			      let ttlleft=enduser[1];
-			      let expTStamp = Number(ttlleft) - Math.floor(Date.now() / 1000);
+      			      let expTStamp = ((Number(ttlleft) - Date.now()) / 1000);
 			    	return new Response(expTStamp + ' Seconds Left', {
 			        headers: { 'content-type': 'text/plain' },
 			      });
