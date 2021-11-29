@@ -85,8 +85,7 @@ kv_namespaces = [
 ]
 
 
-Make note of the above generated ids and input the appropriate IDs generated above.
-Edit wranger.toml, and update the input the above generated KV ids into the respective bindings.
+Make note of the above generated ids. Edit wranger.toml, and update he above generated KV ids into the respective bindings.
 
 >     kv_namespaces = [
 >         { binding = "APIKeys", id = "put the KV ID generated for APIKeys" },
