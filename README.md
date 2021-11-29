@@ -158,7 +158,8 @@ OR
 >     #If the email domain filter is set to YES enter a comma seperated list of domains with the single quotes as shown below
 >     emaildomainslist = "'gmail.com','facebook.com','yahoo.com'"
 >
->     #Change your domain below and set the server name to match this setting to the same subdomain setting in datasink.
+>     #Change your domain below and set the server name to match the route subdomain. If the routes is protecting all subdomains 
+>     the servername below can point to any subddomain. If you are implementing a customized login page, the javascript should point to this servername
 >     servername = "login.yourdomain.xxx"
 >
 >     #Do not change the below two settings
