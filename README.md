@@ -85,7 +85,16 @@ kv_namespaces = [
 ]
 
 
-Make note of the above generated ids and input the appropriate IDs generated above in the next step
+Make note of the above generated ids and input the appropriate IDs generated above.
+Edit wranger.toml, and update the input the above generated KV ids into the respective bindings.
+
+>     kv_namespaces = [
+>         { binding = "APIKeys", id = "put the KV ID generated for APIKeys" },
+>	      { binding = "DATASink", id = "put the KV ID generated in DATASink" },
+>	      { binding = "AUDITLogs", id = "put the KV ID generated in AUDITLogs" }
+>
+>     ]
+
 
 ---
 
@@ -124,17 +133,11 @@ OR
 >     $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';[System.Text.Encoding]::UTF8.GetString($response.Content);
 
 
-#### 4. Edit wranger.toml, change your domain and input the above generated KV ids and make required changes as indicated below
+#### 4. Edit wranger.toml, change your domain and input the generated Client Id and make the required changes to the config file as indicated below
 
->     #Implements authentication for all subdomains under yourdomain.com
+>     #Implements authentication for all subdomains under yourdomain.com, if you want to protect only one subdomain change the first \* to your domainname
 >     routes = ["\*.yourdomain.com/login\*"] - 
 >
->     kv_namespaces = [
->         { binding = "APIKeys", id = "put the KV ID generated for APIKeys" },
->	      { binding = "DATASink", id = "put the KV ID generated in DATASink" },
->	      { binding = "AUDITLogs", id = "put the KV ID generated in AUDITLogs" }
->
->     ]
 >
 >     [vars]
 >     #Change this if you need to set a different protocol for datasink
@@ -144,10 +147,10 @@ OR
 >     #HexaEight Serverless is tested and works with api.cl1p.net  and could be an alternative which provides cost effective datasink.  
 >     usecfdatasink = "YES"
 >
->     #Change the domain below
+>     #Change the domain below to match with the subdomain, if the route is \*, then designate any subdomain of your choice but DO NOT change /login/sink.
 >     datasink = "login.yourdomain.xxx/login/sink"
 >
->     #Prefix a dot to allow a cookie to be set for all you subdomains
+>     #Prefix a dot to allow a cookie to be set for all you subdomains or change the domain to suit only your subdomain.
 >     cookiedomain = ".yourdomain.xxx"
 >
 >     #Change emaildomainfilter to NO if you want to allow authentication from any email address
@@ -156,7 +159,7 @@ OR
 >     #If the email domain filter is set to YES enter a comma seperated list of domains with the single quotes as shown below
 >     emaildomainslist = "'gmail.com','facebook.com','yahoo.com'"
 >
->     #Change your domain below and set the server name to the subdomain of your choice. Esure the datasink subdomain matches with the same subdomain.
+>     #Change your domain below and set the server name to match this setting to the same subdomain setting in datasink.
 >     servername = "login.yourdomain.xxx"
 >
 >     #Do not change the below two settings
