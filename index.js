@@ -278,15 +278,17 @@ async function handleRequest(request) {
 	if (emaildomainsfilter.toUpperCase() == "NO") {
 		//let expTStamp = Math.floor(Date.now() / 1000)+3600;
 		let expTStamp = Number(whois.exp)*60*1000;
-	        let token = `hexaeighttoken=${userauthtoken.trim()}; expires=${expTStamp}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`;
-	        let token2 = `hexaeightuserinfo=${whois.user.trim()+":"+expTStamp.toString()+";"}; expires=${expTStamp}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`;
+		let expDate = new Date();
+		expDate.setTime(expTStamp);
+	        let token = `hexaeighttoken=${userauthtoken.trim()}; expires=${expDate}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`;
+	        let token2 = `hexaeightuserinfo=${whois.user.trim()+":"+expTStamp.toString()+";"}; expires=${expDate}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`;
 	        let response = new Response('SessionResponse: User Authenticated Successfully.', {
 	        headers: { 'content-type': 'text/plain',
-	        'Set-Cookie': `hexaeightsessionid=${whois.clientcodechallenge}; expires=${expTStamp}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`,
+	        'Set-Cookie': `hexaeightsessionid=${whois.clientcodechallenge}; expires=${expDate}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`,
 	        },
 	        });
-	        response.headers.append('Set-Cookie', `hexaeighttoken=${userauthtoken.trim()}; expires=${expTStamp}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`);
-	        response.headers.append('Set-Cookie', `hexaeightuserinfo=${whois.user.trim()+":"+expTStamp.toString()+";"}; expires=${expTStamp}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`);
+	        response.headers.append('Set-Cookie', `hexaeighttoken=${userauthtoken.trim()}; expires=${expDate}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`);
+	        response.headers.append('Set-Cookie', `hexaeightuserinfo=${whois.user.trim()+":"+expTStamp.toString()+";"}; expires=${expDate}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`);
 
 		if (auditing === "ENABLED") {
 			await AUDITLogs.put(Date.now(),"LoginSuccess:"+whois.user +":"+ JSON.stringify(whois) , {expirationTtl: 604800});
@@ -516,7 +518,9 @@ async function handleRequest(request) {
 						        },
 					        });
 					        response.headers.append('Set-Cookie', `hexaeightuserinfo=${useremail.trim()+":"+newexpTStamp.toString()+";"}; expires=${expDate}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`);
-			
+					      
+						response.headers.append('Set-Cookie', `hexaeightsessionid=${challenge.trim()+":"+newexpTStamp.toString()+";"}; expires=${expDate}; path=/; domain=${usercookiedomain}; secure; HttpOnly; SameSite=Strict;`);
+
 						if (auditing === "ENABLED") {
 							await AUDITLogs.put(Date.now(),"CookieExtensionSuccess:"+whois.user +":"+ JSON.stringify(whois) , {expirationTtl: 604800});
 						}
