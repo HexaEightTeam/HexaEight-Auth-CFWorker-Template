@@ -129,7 +129,7 @@ OR
 
 ###### From Windows using Powershell
 >     $h = @{"x-rapidapi-host"="hexaeight-sso-platform.p.rapidapi.com"; "x-rapidapi-key"="your rapid api key";}
->     $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';[System.Text.Encoding]::UTF8.GetString($response.Content);
+>     $response = Invoke-WebRequest -Body 'Default Login Application v 1.0' -Uri 'https://hexaeight-sso-platform.p.rapidapi.com/get-new-securetoken' -Method POST -Headers $h -ContentType 'text/plain';$response.Content;
 
 
 #### 4. Edit wranger.toml, change your domain and input the generated Client Id and make the required changes to the config file as indicated below
