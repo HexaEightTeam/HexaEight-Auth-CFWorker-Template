@@ -9,7 +9,7 @@ instead you will need to register your entire domain in cloudflare, the subdomai
 So if you are planning on protecting only your subdomain using HexaEight Serverless, then this wont work unless you are a Cloudflare 
 Enterprise customer.
 
-Alternatively HexaEight Serverless can be deployed on Vercel Platform that supports subdomains. HexaEight Serverless will be available on larger base of Serverless Platforms shortly. Visit our [`Website`](https://www.hexaeight.com/serverless.html) for latest updates
+Alternatively HexaEight Serverless can be deployed on [`Vercel Platform`](https://docs.hexaeight.com/serverless.html#deploy-on-vercel-platform-zeit) that supports subdomains. HexaEight Serverless will be available on larger base of Serverless Platforms shortly. Visit our [`Website`](https://www.hexaeight.com/serverless.html) for latest updates
 
 [`index.js`](https://github.com/HexaEightTeam/HexaEight-Auth-CFWorker-Template/blob/main/index.js) contains the Worker Script
 
